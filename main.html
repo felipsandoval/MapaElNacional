@@ -4,57 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paises que apoyan a Venezuela</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        #map {
-            width: 100%;
-            height: 80vh;
-            position: relative;
-        }
-        .country {
-            cursor: pointer;
-            stroke: #ffffff;
-            stroke-width: 0.5;
-            transition: fill 0.3s;
-        }
-        .red {
-            fill: #de3c23;
-        }
-        .blue {
-            fill: #368acf;
-        }
-        .grey {
-            fill: #cccbc6;
-        }
-        .yellow {
-            fill: #e3cf5b;
-        }
-        .red:hover {
-            fill: #c7341e;
-        }
-        .blue:hover {
-            fill: #2d7cbd;
-        }
-        .grey:hover {
-            fill: #abaaa4;
-        }
-        .yellow:hover {
-            fill: #d4be3d;
-        }
-        #info-box {
-            position: absolute;
-            padding: 10px;
-            background-color: rgba(255, 255, 255, 0.8);
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            display: none;
-            pointer-events: none;
-        }
-    </style>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <h1>Paises que apoyan a Venezuela</h1>
@@ -62,64 +12,6 @@
     <div id="info-box">CONTENIDO AQUÍ, LINK AQUÍ</div>
     <script src="https://d3js.org/d3.v6.min.js"></script>
     <script src="https://d3js.org/topojson.v1.min.js"></script>
-    <script>
-        const width = document.getElementById('map').clientWidth,
-              height = document.getElementById('map').clientHeight;
-
-        const svg = d3.select("#map").append("svg")
-            .attr("width", width)
-            .attr("height", height);
-
-        const projection = d3.geoMercator()
-            .scale(400)
-            .center([-70, -15])
-            .translate([width / 2, height / 2]);
-
-        const path = d3.geoPath().projection(projection);
-
-        const g = svg.append("g");
-
-        const zoom = d3.zoom()
-            .scaleExtent([1, 8])
-            .on("zoom", (event) => {
-                g.attr("transform", event.transform);
-            });
-
-        svg.call(zoom);
-
-        fetch("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
-            .then(response => response.json())
-            .then(data => {
-                const latinAmerica = data.features.filter(d => {
-                    const id = d.id;
-                    return ["USA", "MEX", "GTM", "BLZ", "SLV", "HND", "NIC", "CRI", "PAN", "COL", "VEN", "GUY", "SUR", "ECU", "PER", "BRA", "BOL", "PRY", "CHL", "ARG", "URY", "CUB", "DOM"].includes(id);
-                });
-
-                g.selectAll("path")
-                    .data(latinAmerica)
-                    .enter().append("path")
-                    .attr("class", d => {
-                        if (["ARG", "CHL", "PER", "PAN", "CRI", "GTM", "DOM", "USA"].includes(d.id)) return "country blue";
-                        if (["VEN", "BOL", "CUB", "NIC", "COL"].includes(d.id)) return "country red";
-                        if (["BRA", "MEX"].includes(d.id)) return "country yellow";
-                        return "country grey";
-                    })
-                    .attr("d", path)
-                    .on("click", function(event, d) {
-                        const infoBox = d3.select("#info-box");
-                        infoBox
-                            .style("display", "block")
-                            .html(`<strong>${d.properties.name}</strong><br>CONTENIDO AQUÍ, LINK AQUÍ`);
-                        
-                        const [x, y] = d3.pointer(event);
-                        infoBox
-                            .style("left", (x + 10) + "px")
-                            .style("top", (y + 10) + "px");
-                    });
-            })
-            .catch(error => {
-                console.error('Error fetching the GeoJSON data:', error);
-            });
-    </script>
+    <script src="js/scripts.js"></script>
 </body>
 </html>

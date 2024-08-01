@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+#map {
+    width: 100%;
+    height: 80vh;
+    position: relative;
+}
+.country {
+    cursor: pointer;
+    stroke: #ffffff;
+    stroke-width: 0.5;
+    transition: fill 0.3s;
+}
+.red {
+    fill: #de3c23;
+}
+.blue {
+    fill: #368acf;
+}
+.grey {
+    fill: #cccbc6;
+}
+.yellow {
+    fill: #e3cf5b;
+}
+.red:hover {
+    fill: #c7341e;
+}
+.blue:hover {
+    fill: #2d7cbd;
+}
+.grey:hover {
+    fill: #abaaa4;
+}
+.yellow:hover {
+    fill: #d4be3d;
+}
+#info-box {
+    position: absolute;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: none;
+    pointer-events: none;
+}
