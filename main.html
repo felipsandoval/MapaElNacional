@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paises que apoyan los resultados de Venezuela</title>
+    <title>Paises que apoyan a Venezuela</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
         }
         #map {
             width: 100%;
@@ -32,13 +34,12 @@
         }
         #info-box {
             position: absolute;
-            top: 10px;
-            left: 10px;
             padding: 10px;
             background-color: rgba(255, 255, 255, 0.8);
             border: 1px solid #ccc;
             border-radius: 5px;
             display: none;
+            pointer-events: none;
         }
     </style>
 </head>
@@ -49,7 +50,8 @@
     <script src="https://d3js.org/d3.v6.min.js"></script>
     <script src="https://d3js.org/topojson.v1.min.js"></script>
     <script>
-        const width = 960, height = 600;
+        const width = document.getElementById('map').clientWidth,
+              height = document.getElementById('map').clientHeight;
 
         const svg = d3.select("#map").append("svg")
             .attr("width", width)
@@ -72,30 +74,39 @@
 
         svg.call(zoom);
 
-        d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson").then(function(data) {
-            const latinAmerica = data.features.filter(d => {
-                const id = d.id;
-                return ["USA", "MEX", "GTM", "BLZ", "SLV", "HND", "NIC", "CRI", "PAN", "COL", "VEN", "GUY", "SUR", "ECU", "PER", "BRA", "BOL", "PRY", "CHL", "ARG", "URY", "CUB", "DOM"].includes(id);
-            });
-
-            g.selectAll("path")
-                .data(latinAmerica)
-                .enter().append("path")
-                .attr("class", d => {
-                    if (["ARG", "CHL", "COL", "PER", "PAN", "CRI", "GTM", "DOM", "USA"].includes(d.id)) return "country blue";
-                    if (["VEN", "BOL", "CUB", "NIC"].includes(d.id)) return "country red";
-                    if (["BRA", "MEX"].includes(d.id)) return "country yellow";
-                    return "country grey";
-                })
-                .attr("d", path)
-                .on("click", function(event, d) {
-                    d3.select("#info-box")
-                        .style("display", "block")
-                        .html(`<strong>${d.properties.name}</strong><br>CONTENIDO AQUÍ, LINK AQUÍ`)
-                        .style("left", (event.pageX + 10) + "px")
-                        .style("top", (event.pageY + 10) + "px");
+        fetch("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
+            .then(response => response.json())
+            .then(data => {
+                const latinAmerica = data.features.filter(d => {
+                    const id = d.id;
+                    return ["USA", "MEX", "GTM", "BLZ", "SLV", "HND", "NIC", "CRI", "PAN", "COL", "VEN", "GUY", "SUR", "ECU", "PER", "BRA", "BOL", "PRY", "CHL", "ARG", "URY", "CUB", "DOM"].includes(id);
                 });
-        });
+
+                g.selectAll("path")
+                    .data(latinAmerica)
+                    .enter().append("path")
+                    .attr("class", d => {
+                        if (["ARG", "CHL", "COL", "PER", "PAN", "CRI", "GTM", "DOM", "USA"].includes(d.id)) return "country blue";
+                        if (["VEN", "BOL", "CUB", "NIC"].includes(d.id)) return "country red";
+                        if (["BRA", "MEX"].includes(d.id)) return "country yellow";
+                        return "country grey";
+                    })
+                    .attr("d", path)
+                    .on("click", function(event, d) {
+                        const infoBox = d3.select("#info-box");
+                        infoBox
+                            .style("display", "block")
+                            .html(`<strong>${d.properties.name}</strong><br>CONTENIDO AQUÍ, LINK AQUÍ`);
+                        
+                        const [x, y] = d3.pointer(event);
+                        infoBox
+                            .style("left", (x + 10) + "px")
+                            .style("top", (y + 10) + "px");
+                    });
+            })
+            .catch(error => {
+                console.error('Error fetching the GeoJSON data:', error);
+            });
     </script>
 </body>
 </html>
