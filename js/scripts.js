@@ -22,6 +22,14 @@ const zoom = d3.zoom()
 
 svg.call(zoom);
 
+const countryInfo = {
+    "ARG": {
+        "message": "Argentina desconoce resultados de los comicios en Venezuela que dan como ganador a Maduro",
+        "link": "https://www.eldiario.es/politica/argentina-desconoce-resultados-comicios-venezuela-dan-ganador-maduro_1_11557528.html"
+    },
+    // Add more countries with specific messages and links if needed
+};
+
 fetch("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
     .then(response => response.json())
     .then(data => {
@@ -42,10 +50,20 @@ fetch("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/wor
             .attr("d", path)
             .on("click", function(event, d) {
                 const infoBox = d3.select("#info-box");
+                const countryId = d.id;
+                const info = countryInfo[countryId] || {
+                    "message": "No ha emitido opinión sobre los resultados.",
+                    "link": ""
+                };
+
                 infoBox
                     .style("display", "block")
-                    .html(`<strong>${d.properties.name}</strong><br>CONTENIDO AQUÍ, LINK AQUÍ`);
-                
+                    .html(`
+                        <strong>${d.properties.name}</strong><br>
+                        ${info.message} <br>
+                        ${info.link ? `<a href="${info.link}" target="_blank">Link a la noticia</a>` : ""}
+                    `);
+
                 const [x, y] = d3.pointer(event);
                 infoBox
                     .style("left", (x + 10) + "px")
