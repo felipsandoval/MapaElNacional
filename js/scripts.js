@@ -66,10 +66,19 @@ fetch("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/wor
 
                 const infoBox = d3.select("#info-box");
                 const countryId = d.id;
-                const info = countryInfo[countryId] || {
-                    "message": "No ha emitido opinión sobre los resultados.",
-                    "link": ""
-                };
+                const info = countryInfo[countryId] || {};
+
+                // Determine default messages based on the country color class
+                if (!info.message) {
+                    const countryClass = d3.select(this).attr("class").split(" ")[1];
+                    if (countryClass === "blue") {
+                        info.message = "Desconocen los resultados emitidos";
+                    } else if (countryClass === "red") {
+                        info.message = "Apoyan los resultados y la autoproclamación de Maduro como Presidente";
+                    } else {
+                        info.message = "No ha emitido opinión sobre los resultados.";
+                    }
+                }
 
                 infoBox
                     .style("display", "block")
