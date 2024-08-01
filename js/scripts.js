@@ -27,6 +27,10 @@ const countryInfo = {
         "message": "Argentina desconoce resultados de los comicios en Venezuela que dan como ganador a Maduro",
         "link": "https://www.eldiario.es/politica/argentina-desconoce-resultados-comicios-venezuela-dan-ganador-maduro_1_11557528.html"
     },
+    "COL": {
+        "message": "Colombia se suma a los países que piden que Venezuela muestre resultados electorales en Auditoría Internacional",
+        "link": "https://www.msn.com/es-mx/noticias/mundo/colombia-se-suma-a-los-pa%C3%ADses-que-piden-que-venezuela-muestre-resultados-electorales-en-auditor%C3%ADa-internacional/ar-BB1qUYcD"
+    },
     // Add more countries with specific messages and links if needed
 };
 
@@ -61,7 +65,7 @@ fetch("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/wor
                     .html(`
                         <strong>${d.properties.name}</strong><br>
                         ${info.message} <br>
-                        ${info.link ? `<a href="${info.link}" target="_blank">Link a la noticia</a>` : ""}
+                        ${info.link ? `<a href="${info.link}" target="_blank">Más información</a>` : ""}
                     `);
 
                 const [x, y] = d3.pointer(event);
