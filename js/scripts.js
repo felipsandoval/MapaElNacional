@@ -51,13 +51,15 @@ fetch("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/wor
             .data(latinAmerica)
             .enter().append("path")
             .attr("class", d => {
+                if (d.id === "VEN") return "country white";
                 if (["ARG", "CHL", "COL", "PER", "PAN", "CRI", "GTM", "DOM", "USA"].includes(d.id)) return "country blue";
-                if (["VEN", "BOL", "CUB", "NIC"].includes(d.id)) return "country red";
-                if (["BRA", "MEX"].includes(d.id)) return "country yellow";
+                if (["BOL", "CUB", "NIC", "BRA", "MEX"].includes(d.id)) return "country red";
                 return "country grey";
             })
             .attr("d", path)
             .on("click", function(event, d) {
+                if (d.id === "VEN") return; // Do nothing if Venezuela is clicked
+
                 const infoBox = d3.select("#info-box");
                 const countryId = d.id;
                 const info = countryInfo[countryId] || {

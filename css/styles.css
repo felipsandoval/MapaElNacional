@@ -23,8 +23,8 @@ body {
 .grey {
     fill: #cccbc6;
 }
-.yellow {
-    fill: #e3cf5b;
+.white {
+    fill: #979090;
 }
 .red:hover {
     fill: #c7341e;
@@ -35,8 +35,8 @@ body {
 .grey:hover {
     fill: #abaaa4;
 }
-.yellow:hover {
-    fill: #d4be3d;
+.white:hover {
+    fill: #797c7c;
 }
 #info-box {
     position: absolute;
