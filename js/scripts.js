@@ -34,6 +34,11 @@ const countryInfo = {
     // Add more countries with specific messages and links if needed
 };
 
+// Function to detect if the user is on a mobile device
+function isMobile() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
 fetch("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
     .then(response => response.json())
     .then(data => {
@@ -65,13 +70,21 @@ fetch("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/wor
                     .html(`
                         <strong>${d.properties.name}</strong><br>
                         ${info.message} <br>
-                        ${info.link ? `<a href="${info.link}" target="_blank">Más información</a>` : ""}
+                        ${info.link ? `<a href="${info.link}" target="_blank">Link a la noticia</a>` : ""}
                     `);
 
-                const [x, y] = d3.pointer(event);
-                infoBox
-                    .style("left", (x + 10) + "px")
-                    .style("top", (y + 10) + "px");
+                if (isMobile()) {
+                    // Center the info box on mobile devices
+                    infoBox
+                        .style("left", (width / 2 - infoBox.node().offsetWidth / 2) + "px")
+                        .style("top", (height / 2 - infoBox.node().offsetHeight / 2) + "px");
+                } else {
+                    // Position the info box near the click on non-mobile devices
+                    const [x, y] = d3.pointer(event);
+                    infoBox
+                        .style("left", (x + 10) + "px")
+                        .style("top", (y + 10) + "px");
+                }
             });
     })
     .catch(error => {
