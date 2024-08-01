@@ -19,18 +19,31 @@
             cursor: pointer;
             stroke: #ffffff;
             stroke-width: 0.5;
+            transition: fill 0.3s;
         }
         .red {
-            fill: red;
+            fill: #de3c23;
         }
         .blue {
-            fill: blue;
+            fill: #368acf;
         }
         .grey {
-            fill: grey;
+            fill: #cccbc6;
         }
         .yellow {
-            fill: yellow;
+            fill: #e3cf5b;
+        }
+        .red:hover {
+            fill: #c7341e;
+        }
+        .blue:hover {
+            fill: #2d7cbd;
+        }
+        .grey:hover {
+            fill: #abaaa4;
+        }
+        .yellow:hover {
+            fill: #d4be3d;
         }
         #info-box {
             position: absolute;
@@ -86,8 +99,8 @@
                     .data(latinAmerica)
                     .enter().append("path")
                     .attr("class", d => {
-                        if (["ARG", "CHL", "COL", "PER", "PAN", "CRI", "GTM", "DOM", "USA"].includes(d.id)) return "country blue";
-                        if (["VEN", "BOL", "CUB", "NIC"].includes(d.id)) return "country red";
+                        if (["ARG", "CHL", "PER", "PAN", "CRI", "GTM", "DOM", "USA"].includes(d.id)) return "country blue";
+                        if (["VEN", "BOL", "CUB", "NIC", "COL"].includes(d.id)) return "country red";
                         if (["BRA", "MEX"].includes(d.id)) return "country yellow";
                         return "country grey";
                     })
