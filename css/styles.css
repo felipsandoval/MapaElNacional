@@ -18,7 +18,7 @@ body {
     fill: #de3c23;
 }
 .blue {
-    fill: #368acf;
+    fill: #0084bb;
 }
 .grey {
     fill: #cccbc6;
@@ -30,7 +30,7 @@ body {
     fill: #c7341e;
 }
 .blue:hover {
-    fill: #2d7cbd;
+    fill: #02648f;
 }
 .grey:hover {
     fill: #abaaa4;

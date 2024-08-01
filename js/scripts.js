@@ -28,8 +28,12 @@ const countryInfo = {
         "link": "https://www.eldiario.es/politica/argentina-desconoce-resultados-comicios-venezuela-dan-ganador-maduro_1_11557528.html"
     },
     "COL": {
-        "message": "Colombia se suma a los países que piden que Venezuela muestre resultados electorales en Auditoría Internacional",
-        "link": "https://www.msn.com/es-mx/noticias/mundo/colombia-se-suma-a-los-pa%C3%ADses-que-piden-que-venezuela-muestre-resultados-electorales-en-auditor%C3%ADa-internacional/ar-BB1qUYcD"
+        "message": "OEA no consigue mayoría para instar a Venezuela a publicar resultado; Brasil y Colombia se abstienen",
+        "link": "https://apnews.com/world-news/general-news-domestic-news-domestic-news-c6aac7b5f757bea66fd1f79951a9f764"
+    },
+    "PRY": {
+        "message": "El presidente de Paraguay considera que Maduro es un dictador",
+        "link": "https://cnnespanol.cnn.com/video/elecciones-venezuela-santiago-pena-paraguay-redaccion-buenos-aires/"
     },
     // Add more countries with specific messages and links if needed
 };
@@ -52,8 +56,8 @@ fetch("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/wor
             .enter().append("path")
             .attr("class", d => {
                 if (d.id === "VEN") return "country white";
-                if (["ARG", "CHL", "COL", "PER", "PAN", "CRI", "GTM", "DOM", "USA"].includes(d.id)) return "country blue";
-                if (["BOL", "CUB", "NIC", "BRA", "MEX"].includes(d.id)) return "country red";
+                if (["ARG", "CHL", "PER", "PAN", "CRI", "GTM", "DOM", "USA", "ECU", "PRY", "URY", "SLV"].includes(d.id)) return "country blue";
+                if (["BOL", "CUB", "NIC", "BRA", "MEX", "COL", "HND"].includes(d.id)) return "country red";
                 return "country grey";
             })
             .attr("d", path)
