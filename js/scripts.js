@@ -1,3 +1,46 @@
+const countryNamesSpanish = {
+    "USA": "Estados Unidos",
+    "MEX": "México",
+    "GTM": "Guatemala",
+    "BLZ": "Belice",
+    "SLV": "El Salvador",
+    "HND": "Honduras",
+    "NIC": "Nicaragua",
+    "CRI": "Costa Rica",
+    "PAN": "Panamá",
+    "COL": "Colombia",
+    "VEN": "Venezuela",
+    "GUY": "Guyana",
+    "SUR": "Surinam",
+    "ECU": "Ecuador",
+    "PER": "Perú",
+    "BRA": "Brasil",
+    "BOL": "Bolivia",
+    "PRY": "Paraguay",
+    "CHL": "Chile",
+    "ARG": "Argentina",
+    "URY": "Uruguay",
+    "CUB": "Cuba",
+    "DOM": "República Dominicana",
+    "GBR": "Reino Unido",
+    "FRA": "Francia",
+    "DEU": "Alemania",
+    "ITA": "Italia",
+    "ESP": "España",
+    "RUS": "Rusia",
+    "BLR": "Bielorrusia",
+    "CHN": "China",
+    "IRN": "Irán",
+    "SRB": "Serbia",
+    "SYR": "Siria",
+    "GRC": "Grecia",
+    "TUR": "Turquía",
+    "IND": "India",
+    "ZAF": "Sudáfrica",
+    "EGY": "Egipto",
+    // Add more countries as needed
+};
+
 const width = document.getElementById('map').clientWidth,
       height = document.getElementById('map').clientHeight;
 
@@ -6,8 +49,8 @@ const svg = d3.select("#map").append("svg")
     .attr("height", height);
 
 const projection = d3.geoMercator()
-    .scale(400)
-    .center([-70, -15])
+    .scale(140)
+    .center([0, 30])
     .translate([width / 2, height / 2]);
 
 const path = d3.geoPath().projection(projection);
@@ -46,18 +89,13 @@ function isMobile() {
 fetch("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
     .then(response => response.json())
     .then(data => {
-        const latinAmerica = data.features.filter(d => {
-            const id = d.id;
-            return ["USA", "MEX", "GTM", "BLZ", "SLV", "HND", "NIC", "CRI", "PAN", "COL", "VEN", "GUY", "SUR", "ECU", "PER", "BRA", "BOL", "PRY", "CHL", "ARG", "URY", "CUB", "DOM"].includes(id);
-        });
-
         g.selectAll("path")
-            .data(latinAmerica)
+            .data(data.features)
             .enter().append("path")
             .attr("class", d => {
                 if (d.id === "VEN") return "country white";
-                if (["ARG", "CHL", "PER", "PAN", "CRI", "GTM", "DOM", "USA", "ECU", "PRY", "URY", "SLV"].includes(d.id)) return "country blue";
-                if (["BOL", "CUB", "NIC", "BRA", "MEX", "COL", "HND"].includes(d.id)) return "country red";
+                if (["ARG", "CHL", "PER", "PAN", "CRI", "GTM", "DOM", "USA", "ECU", "PRY", "URY", "SLV", "GBR", "FRA", "DEU", "ITA", "ESP", "GRC", "TUR"].includes(d.id)) return "country blue";
+                if (["BOL", "CUB", "NIC", "BRA", "MEX", "COL", "HND", "RUS", "BLR", "CHN", "IRN", "SRB", "SYR"].includes(d.id)) return "country red";
                 return "country grey";
             })
             .attr("d", path)
@@ -83,7 +121,7 @@ fetch("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/wor
                 infoBox
                     .style("display", "block")
                     .html(`
-                        <strong>${d.properties.name}</strong><br>
+                        <strong>${countryNamesSpanish[countryId] || d.properties.name}</strong><br>
                         ${info.message} <br>
                         ${info.link ? `<a href="${info.link}" target="_blank">Link a la noticia</a>` : ""}
                     `);
