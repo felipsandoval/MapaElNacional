@@ -91,15 +91,18 @@ body {
     }
 }
 .credit {
-    font-size: 1rem; /* Tamaño estándar */
-    text-align: center;
-    color: #6c757d; /* Color gris de Bootstrap */
-    margin-top: 1rem;
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    font-size: 0.8rem; /* Tamaño de fuente estándar */
+    color: rgba(206, 200, 200, 0.737); /* Color blanco con transparencia */
+    text-align: right;
 }
 @media (max-width: 576px) {
     .credit {
-        font-size: 0.75rem; /* Tamaño para dispositivos móviles */
-        margin-top: 1rem; /* Ajuste de margen superior para dispositivos móviles */
+        font-size: 0.7rem; /* Tamaño de fuente más pequeño para dispositivos móviles */
+        bottom: 0.5rem;
+        right: 0.5rem;
     }
 }
 .glossary {
