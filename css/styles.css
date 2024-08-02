@@ -13,6 +13,30 @@ body {
     position: relative;
     background-color: #faf9f5; /* Color de fondo para el mapa */
 }
+#glossary {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo con transparencia */
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 0.8rem;
+}
+.glossary-box {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.5rem;
+}
+.glossary-box.red {
+    background-color: #de3c23;
+}
+.glossary-box.blue {
+    background-color: #0084bb;
+}
+.glossary-box.grey {
+    background-color: #cccbc6;
+}
 .country {
     cursor: pointer;
     stroke: #ffffff;
