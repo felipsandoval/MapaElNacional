@@ -27,7 +27,7 @@ body {
     fill: #cccbc6;
 }
 .white {
-    fill: #979090;
+    fill: #7e7878;
 }
 .red:hover {
     fill: #c7341e;
@@ -39,7 +39,7 @@ body {
     fill: #abaaa4;
 }
 .white:hover {
-    fill: #797c7c;
+    fill: #5f5a5a;
 }
 #info-box {
     position: absolute;

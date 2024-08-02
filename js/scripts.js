@@ -2,6 +2,7 @@
 /* Done x Felipe Enmanuel Sandoval Sibada  */
 /* ######################################## */
 const countryNamesSpanish = {
+    // Lista de países con sus nombres en español
     "USA": "Estados Unidos",
     "MEX": "México",
     "GTM": "Guatemala",
@@ -214,6 +215,7 @@ const zoom = d3.zoom()
     .scaleExtent([1, 8])
     .on("zoom", (event) => {
         g.attr("transform", event.transform);
+        hideInfoBox();
     });
 
 svg.call(zoom);
@@ -271,6 +273,10 @@ function isMobile() {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 }
 
+function hideInfoBox() {
+    d3.select("#info-box").style("display", "none");
+}
+
 fetch("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
     .then(response => response.json())
     .then(data => {
@@ -323,7 +329,15 @@ fetch("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/wor
                         .style("left", (x + 10) + "px")
                         .style("top", (y + 10) + "px");
                 }
+
+                // Hide the info box after 5 seconds
+                setTimeout(hideInfoBox, 5000);
             });
+
+        // Hide the info box if the map is moved or clicked elsewhere
+        svg.on("click", function(event) {
+            if (event.target.tagName !== 'path') hideInfoBox();
+        });
     })
     .catch(error => {
         console.error('Error fetching the GeoJSON data:', error);
