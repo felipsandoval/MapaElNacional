@@ -49,4 +49,25 @@ body {
     border-radius: 5px;
     display: none;
     pointer-events: none;
+    max-width: 90%; /* Ajuste para dispositivos móviles */
+    font-size: 0.9rem; /* Tamaño de fuente un poco más pequeño */
+}
+@media (max-width: 576px) {
+    #info-box {
+        font-size: 0.8rem; /* Tamaño de fuente más pequeño para dispositivos móviles */
+        padding: 15px; /* Más padding para mejor lectura en móviles */
+        max-width: 100%; /* Usar todo el ancho disponible en móviles */
+    }
+}
+.credit {
+    font-size: 1rem; /* Tamaño estándar */
+    text-align: center;
+    color: #6c757d; /* Color gris de Bootstrap */
+    margin-top: 1rem;
+}
+@media (max-width: 576px) {
+    .credit {
+        font-size: 0.75rem; /* Tamaño para dispositivos móviles */
+        margin-top: 1rem; /* Ajuste de margen superior para dispositivos móviles */
+    }
 }
