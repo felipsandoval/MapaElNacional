@@ -336,7 +336,8 @@ fetch("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/wor
 
         // Hide the info box if the map is moved or clicked elsewhere
         svg.on("click", function(event) {
-            if (event.target.tagName !== 'path') hideInfoBox();
+            // Only hide the info box if the click is outside the path or link
+            if (event.target.tagName !== 'path' && event.target.tagName !== 'A') hideInfoBox();
         });
     })
     .catch(error => {
