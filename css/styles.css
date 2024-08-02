@@ -99,6 +99,13 @@ body {
     text-align: right;
     z-index: 10; /* Ensure the credit stays on top of other elements */
 }
+.credit a {
+    color: #3e3a3a; /* Same color for the link */
+    text-decoration: none; /* Remove underline */
+}
+.credit a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
 @media (max-width: 576px) {
     .credit {
         font-size: 0.7rem; /* Tamaño de fuente más pequeño para dispositivos móviles */
@@ -110,13 +117,14 @@ body {
     position: absolute;
     top: 10px;
     left: 10px;
-    background-color: rgba(255, 255, 255, 0.8); /* Fondo semitransparente */
+    background-color: #5b5757; /* Fondo semitransparente */
     padding: 0.5rem;
     border-radius: 0.5rem;
     font-size: 0.9rem;
     max-width: 15rem;
     z-index: 10; /* Ensure the glossary stays on top of other elements */
 }
+
 #map .glossary {
     position: absolute;
     top: 1rem;
