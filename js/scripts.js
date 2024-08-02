@@ -222,50 +222,69 @@ svg.call(zoom);
 
 const countryInfo = {
     "ARG": {
-        "message": "Ocho países latinoamericanos piden un conteo de votos transparente en Venezuela",
-        "link": "https://www.elnacional.com/venezuela/politica/ocho-paises-latinoamericanos-piden-un-conteo-de-votos-transparente-en-venezuela/"
+        "message": "Milei: «Ni Maduro se cree la estafa electoral que festeja»",
+        "link": "https://www.elnacional.com/mundo/milei-ni-maduro-se-cree-la-estafa-electoral-que-festeja/"
+    },
+    "BRA": {
+        "message": "Brasil pide al Centro Carter y la ONU investigar denuncias sobre elecciones en Venezuela",
+        "link": "https://www.elnacional.com/mundo/brasil-pide-al-centro-carter-y-la-onu-investigar-denuncias-sobre-elecciones-en-venezuela/"
+    },
+    "CHL": {
+        "message": "Chile confirma que el cuerpo diplomático venezolano dejará el país en las próximas horas",
+        "link": "https://www.elnacional.com/venezuela/chile-confirma-que-el-cuerpo-diplomatico-venezolano-dejara-el-pais-en-las-proximas-horas/"
     },
     "COL": {
-        "message": "Gustavo Petro: «No es un gobierno extranjero el que debe decidir quién es el presidente de Venezuela»",
-        "link": "https://www.elnacional.com/mundo/gustavo-petro-no-es-un-gobierno-extranjero-el-que-debe-decidir-quien-es-el-presidente-de-venezuela/"
-    },
-    "PRY": {
-        "message": "Ocho países latinoamericanos piden un conteo de votos transparente en Venezuela",
-        "link": "https://www.elnacional.com/venezuela/politica/ocho-paises-latinoamericanos-piden-un-conteo-de-votos-transparente-en-venezuela/"
-    },
-    "USA": {
-        "message": "La Casa Blanca considera inaceptable la represión contra manifestantes en Venezuela",
-        "link": "https://www.elnacional.com/mundo/casa-blanca-considera-inaceptable-represion-de-manifestantes-en-venezuela/"
+        "message": "Petro habló con Boric sobre Venezuela: «Que la democracia prevalezca en América»",
+        "link": "https://www.elnacional.com/venezuela/petro-hablo-con-boric-sobre-venezuela-que-la-democracia-prevalezca-en-america/"
     },
     "CRI": {
         "message": "Ocho países latinoamericanos piden un conteo de votos transparente en Venezuela",
         "link": "https://www.elnacional.com/venezuela/politica/ocho-paises-latinoamericanos-piden-un-conteo-de-votos-transparente-en-venezuela/"
     },
+    "DEU": {
+        "message": "El G7 insta al gobierno de Maduro a publicar los resultados electorales con total transparencia",
+        "link": "https://www.elnacional.com/mundo/el-g7-insta-al-gobierno-de-maduro-a-publicar-los-resultados-electorales-con-total-transparencia/"
+    },
     "ECU": {
-        "message": "Ocho países latinoamericanos piden un conteo de votos transparente en Venezuela",
-        "link": "https://www.elnacional.com/venezuela/politica/ocho-paises-latinoamericanos-piden-un-conteo-de-votos-transparente-en-venezuela/"
+        "message": "El gobierno de Ecuador rechaza la falta de transparencia en las elecciones de Venezuela",
+        "link": "https://www.elnacional.com/venezuela/politica/el-gobierno-de-ecuador-rechaza-la-falta-de-transparencia-en-las-elecciones-de-venezuela/"
+    },
+    "ESP": {
+        "message": "España sigue de cerca la situación en Venezuela e insiste en pedir total transparencia",
+        "link": "https://www.elnacional.com/venezuela/espana-sigue-de-cerca-la-situacion-en-venezuela-insiste-en-pedir-total-transparencia/"
+    },
+    "USA": {
+        "message": "Estados Unidos reconoce como válidos los resultados que dan ganador a Edmundo González y anuncia su disposición de apoyar una transición",
+        "link": "https://www.elnacional.com/venezuela/estados-unidos-reconoce-como-validos-los-resultados-que-dan-ganador-a-edmundo-gonzalez-y-anuncia-su-disposicion-de-apoyar-una-transicion/"
     },
     "PAN": {
-        "message": "Ocho países latinoamericanos piden un conteo de votos transparente en Venezuela",
-        "link": "https://www.elnacional.com/venezuela/politica/ocho-paises-latinoamericanos-piden-un-conteo-de-votos-transparente-en-venezuela/"
-    },
-    "PRY": {
-        "message": "Ocho países latinoamericanos piden un conteo de votos transparente en Venezuela",
-        "link": "https://www.elnacional.com/venezuela/politica/ocho-paises-latinoamericanos-piden-un-conteo-de-votos-transparente-en-venezuela/"
+        "message": "En suspenso las relaciones bilaterales: Panamá retira a sus diplomáticos de Venezuela",
+        "link": "https://www.elnacional.com/mundo/en-suspenso-las-relaciones-bilaterales-panama-retira-a-sus-diplomaticos-de-venezuela/"
     },
     "PER": {
-        "message": "Ocho países latinoamericanos piden un conteo de votos transparente en Venezuela",
-        "link": "https://www.elnacional.com/venezuela/politica/ocho-paises-latinoamericanos-piden-un-conteo-de-votos-transparente-en-venezuela/"
-    },
-    "URY": {
-        "message": "Ocho países latinoamericanos piden un conteo de votos transparente en Venezuela",
-        "link": "https://www.elnacional.com/venezuela/politica/ocho-paises-latinoamericanos-piden-un-conteo-de-votos-transparente-en-venezuela/"
+        "message": "Perú reconoce a Edmundo González como presidente",
+        "link": "https://www.elnacional.com/mundo/peru-reconoce-edmundo-gonzalez-como-presidente/"
     },
     "DOM": {
-        "message": "Ocho países latinoamericanos piden un conteo de votos transparente en Venezuela",
-        "link": "https://www.elnacional.com/venezuela/politica/ocho-paises-latinoamericanos-piden-un-conteo-de-votos-transparente-en-venezuela/"
+        "message": "República Dominicana confía en retomar contactos con Venezuela en el futuro",
+        "link": "https://www.elnacional.com/mundo/republica-dominicana-confia-en-retomar-contactos-con-venezuela-en-el-futuro/"
     },
-    // Add more countries with specific messages and links if needed
+    "URY": {
+        "message": "Lacalle Pou sobre Venezuela: «Si no mostrás documentos, algo raro hay»",
+        "link": "https://www.elnacional.com/mundo/lacalle-pou-sobre-venezuela-si-no-mostras-documentos-algo-raro-hay/"
+    },
+    "JPN": {
+        "message": "El G7 insta al gobierno de Maduro a publicar los resultados electorales con total transparencia",
+        "link": "https://www.elnacional.com/mundo/el-g7-insta-al-gobierno-de-maduro-a-publicar-los-resultados-electorales-con-total-transparencia/"
+    },
+    "ITA": {
+        "message": "El G7 insta al gobierno de Maduro a publicar los resultados electorales con total transparencia",
+        "link": "https://www.elnacional.com/mundo/el-g7-insta-al-gobierno-de-maduro-a-publicar-los-resultados-electorales-con-total-transparencia/"
+    },
+    "GBR": {
+        "message": "El G7 insta al gobierno de Maduro a publicar los resultados electorales con total transparencia",
+        "link": "https://www.elnacional.com/mundo/el-g7-insta-al-gobierno-de-maduro-a-publicar-los-resultados-electorales-con-total-transparencia/"
+    }
 };
 
 // Function to detect if the user is on a mobile device

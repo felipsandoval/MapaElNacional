@@ -95,8 +95,9 @@ body {
     bottom: 1rem;
     right: 1rem;
     font-size: 0.8rem; /* Tamaño de fuente estándar */
-    color: rgba(206, 200, 200, 0.737); /* Color blanco con transparencia */
+    color: rgba(255, 255, 255, 0.7); /* Color blanco con transparencia */
     text-align: right;
+    z-index: 10; /* Ensure the credit stays on top of other elements */
 }
 @media (max-width: 576px) {
     .credit {
