@@ -74,9 +74,14 @@ body {
     border: 0.1rem solid #ccc; /* Usar rem para border */
     border-radius: 0.5rem; /* Usar rem para border-radius */
     display: none;
-    pointer-events: none;
+    pointer-events: auto; /* Hacer que los elementos dentro del info-box sean clicables */
     max-width: 90%; /* Ajuste para dispositivos móviles */
     font-size: 0.9rem; /* Tamaño de fuente un poco más pequeño */
+}
+#info-box a {
+    pointer-events: auto; /* Hacer que los enlaces sean clicables */
+    text-decoration: underline; /* Subrayar los enlaces para mayor visibilidad */
+    color: #007bff; /* Color de enlace estándar */
 }
 @media (max-width: 576px) {
     #info-box {
@@ -96,4 +101,26 @@ body {
         font-size: 0.75rem; /* Tamaño para dispositivos móviles */
         margin-top: 1rem; /* Ajuste de margen superior para dispositivos móviles */
     }
+}
+.glossary {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo semitransparente */
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    max-width: 15rem;
+    z-index: 10; /* Ensure the glossary stays on top of other elements */
+}
+#map .glossary {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+.glossary .color-box {
+    width: 1rem;
+    height: 1rem;
+    display: inline-block;
+    margin-right: 0.5rem;
 }
