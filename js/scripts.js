@@ -1,3 +1,6 @@
+/* ######################################## */
+/* Done x Felipe Enmanuel Sandoval Sibada  */
+/* ######################################## */
 const countryNamesSpanish = {
     "USA": "Estados Unidos",
     "MEX": "México",
@@ -179,6 +182,16 @@ const countryNamesSpanish = {
     "TUV": "Tuvalu",
     "VUT": "Vanuatu",
     "ATA": "Antártida",
+    "ATG": "Antigua y Barbuda",
+    "BHS": "Bahamas",
+    "BRB": "Barbados",
+    "DMA": "Dominica",
+    "GRD": "Granada",
+    "HTI": "Haití",
+    "JAM": "Jamaica",
+    "LCA": "Santa Lucía",
+    "KNA": "San Cristóbal y Nieves",
+    "VCT": "San Vicente y las Granadinas",
 };
 
 const width = document.getElementById('map').clientWidth,
@@ -207,16 +220,48 @@ svg.call(zoom);
 
 const countryInfo = {
     "ARG": {
-        "message": "Argentina desconoce resultados de los comicios en Venezuela que dan como ganador a Maduro",
-        "link": "https://www.eldiario.es/politica/argentina-desconoce-resultados-comicios-venezuela-dan-ganador-maduro_1_11557528.html"
+        "message": "Ocho países latinoamericanos piden un conteo de votos transparente en Venezuela",
+        "link": "https://www.elnacional.com/venezuela/politica/ocho-paises-latinoamericanos-piden-un-conteo-de-votos-transparente-en-venezuela/"
     },
     "COL": {
-        "message": "OEA no consigue mayoría para instar a Venezuela a publicar resultado; Brasil y Colombia se abstienen",
-        "link": "https://apnews.com/world-news/general-news-domestic-news-domestic-news-c6aac7b5f757bea66fd1f79951a9f764"
+        "message": "Gustavo Petro: «No es un gobierno extranjero el que debe decidir quién es el presidente de Venezuela»",
+        "link": "https://www.elnacional.com/mundo/gustavo-petro-no-es-un-gobierno-extranjero-el-que-debe-decidir-quien-es-el-presidente-de-venezuela/"
     },
     "PRY": {
-        "message": "El presidente de Paraguay considera que Maduro es un dictador",
-        "link": "https://cnnespanol.cnn.com/video/elecciones-venezuela-santiago-pena-paraguay-redaccion-buenos-aires/"
+        "message": "Ocho países latinoamericanos piden un conteo de votos transparente en Venezuela",
+        "link": "https://www.elnacional.com/venezuela/politica/ocho-paises-latinoamericanos-piden-un-conteo-de-votos-transparente-en-venezuela/"
+    },
+    "USA": {
+        "message": "La Casa Blanca considera inaceptable la represión contra manifestantes en Venezuela",
+        "link": "https://www.elnacional.com/mundo/casa-blanca-considera-inaceptable-represion-de-manifestantes-en-venezuela/"
+    },
+    "CRI": {
+        "message": "Ocho países latinoamericanos piden un conteo de votos transparente en Venezuela",
+        "link": "https://www.elnacional.com/venezuela/politica/ocho-paises-latinoamericanos-piden-un-conteo-de-votos-transparente-en-venezuela/"
+    },
+    "ECU": {
+        "message": "Ocho países latinoamericanos piden un conteo de votos transparente en Venezuela",
+        "link": "https://www.elnacional.com/venezuela/politica/ocho-paises-latinoamericanos-piden-un-conteo-de-votos-transparente-en-venezuela/"
+    },
+    "PAN": {
+        "message": "Ocho países latinoamericanos piden un conteo de votos transparente en Venezuela",
+        "link": "https://www.elnacional.com/venezuela/politica/ocho-paises-latinoamericanos-piden-un-conteo-de-votos-transparente-en-venezuela/"
+    },
+    "PRY": {
+        "message": "Ocho países latinoamericanos piden un conteo de votos transparente en Venezuela",
+        "link": "https://www.elnacional.com/venezuela/politica/ocho-paises-latinoamericanos-piden-un-conteo-de-votos-transparente-en-venezuela/"
+    },
+    "PER": {
+        "message": "Ocho países latinoamericanos piden un conteo de votos transparente en Venezuela",
+        "link": "https://www.elnacional.com/venezuela/politica/ocho-paises-latinoamericanos-piden-un-conteo-de-votos-transparente-en-venezuela/"
+    },
+    "URY": {
+        "message": "Ocho países latinoamericanos piden un conteo de votos transparente en Venezuela",
+        "link": "https://www.elnacional.com/venezuela/politica/ocho-paises-latinoamericanos-piden-un-conteo-de-votos-transparente-en-venezuela/"
+    },
+    "DOM": {
+        "message": "Ocho países latinoamericanos piden un conteo de votos transparente en Venezuela",
+        "link": "https://www.elnacional.com/venezuela/politica/ocho-paises-latinoamericanos-piden-un-conteo-de-votos-transparente-en-venezuela/"
     },
     // Add more countries with specific messages and links if needed
 };
@@ -234,7 +279,7 @@ fetch("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/wor
             .enter().append("path")
             .attr("class", d => {
                 if (d.id === "VEN") return "country white";
-                if (["ARG", "CHL", "PER", "PAN", "CRI", "GTM", "DOM", "USA", "ECU", "PRY", "URY", "SLV", "GBR", "FRA", "DEU", "ITA", "ESP", "GRC", "TUR", "CAN"].includes(d.id)) return "country blue";
+                if (["AUS", "ARG", "CHL", "PER", "PAN", "CRI", "GTM", "DOM", "USA", "ECU", "PRY", "URY", "SLV", "GBR", "FRA", "DEU", "ITA", "ESP", "GRC", "TUR", "CAN"].includes(d.id)) return "country blue";
                 if (["BOL", "CUB", "NIC", "BRA", "MEX", "COL", "HND", "RUS", "BLR", "CHN", "IRN", "SRB", "SYR"].includes(d.id)) return "country red";
                 return "country grey";
             })
@@ -250,11 +295,11 @@ fetch("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/wor
                 if (!info.message) {
                     const countryClass = d3.select(this).attr("class").split(" ")[1];
                     if (countryClass === "blue") {
-                        info.message = "Desconocen los resultados emitidos";
+                        info.message = "Rechazan los resultados emitidos por el CNE";
                     } else if (countryClass === "red") {
-                        info.message = "Apoyan los resultados y la autoproclamación de Maduro como Presidente";
+                        info.message = "Apoyan los resultados emitidos por el CNE y la autoproclamación de Maduro como Presidente";
                     } else {
-                        info.message = "No ha emitido opinión sobre los resultados.";
+                        info.message = "No ha emitido opinión sobre los resultados";
                     }
                 }
 
