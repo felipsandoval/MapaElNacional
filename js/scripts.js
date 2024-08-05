@@ -304,7 +304,7 @@ fetch("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/wor
             .enter().append("path")
             .attr("class", d => {
                 if (d.id === "VEN") return "country white";
-                if (["NOR", "BRA", "COL", "GUY", "MEX", "JPN", "BEL", "PRT", "GBR", "AUS", "ARG", "CHL", "PER", "PAN", "CRI", "GTM", "DOM", "USA", "ECU", "PRY", "URY", "SLV", "FRA", "DEU", "ITA", "ESP", "GRC", "CAN"].includes(d.id)) return "country blue";
+                if (["NLD", "POL", "NOR", "BRA", "COL", "GUY", "MEX", "JPN", "BEL", "PRT", "GBR", "AUS", "ARG", "CHL", "PER", "PAN", "CRI", "GTM", "DOM", "USA", "ECU", "PRY", "URY", "SLV", "FRA", "DEU", "ITA", "ESP", "GRC", "CAN"].includes(d.id)) return "country blue";
                 if (["BOL", "CUB", "TUR", "NIC", "HND", "RUS", "BLR", "CHN", "IRN", "SRB", "SYR"].includes(d.id)) return "country red";
                 return "country grey";
             })
